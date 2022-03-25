@@ -58,7 +58,7 @@
                     <td class="@overdue">@task.Status.Name</td>
                     <td>
                         <form asp-action="Edit" method="post" 
-                              asp-route-id="@ViewBag.Filters.FilterString" 
+                              asp-route-id="@Model.Filters.FilterString" 
                               class="mr-2">
 
                             <input type="hidden" 

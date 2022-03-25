@@ -18,6 +18,7 @@ namespace ToDoList.Controllers
             model.Filters = filters;
             model.Categories = context.Categories.ToList();
             model.Statuses = context.Statuses.ToList();
+
             model.DueFilters = Filters.DueFilterValues;
 
             // get ToDo objects from database based on current filters
@@ -41,7 +42,8 @@ namespace ToDoList.Controllers
                 else if (filters.IsToday)
                     query = query.Where(t => t.DueDate == today);
             }
-            var tasks = query.OrderBy(t => t.DueDate).ToList();
+            model.Tasks =  query.OrderBy(t => t.DueDate).ToList();
+
             return View(model);
         }
 
